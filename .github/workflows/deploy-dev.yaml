@@ -10,18 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t guyleifer/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true guyleifer/react-test npm test
+      - run: docker build -t guyleifer7/react-test -f ./client/Dockerfile.dev ./client
+      - run: docker run -e CI=true guyleifer7/react-test npm test
  
-      - run: docker build -t guyleifer/multi-client-10-14 ./client
-      - run: docker build -t guyleifer/multi-nginx-10-14 ./nginx
-      - run: docker build -t guyleifer/multi-server-10-14 ./server
-      - run: docker build -t guyleifer/multi-worker-10-14 ./worker
+      - run: docker build -t guyleifer7/multi-client-10-14 ./client
+      - run: docker build -t guyleifer7/multi-nginx-10-14 ./nginx
+      - run: docker build -t guyleifer7/multi-server-10-14 ./server
+      - run: docker build -t guyleifer7/multi-worker-10-14 ./worker
  
-      - run: docker push guyleifer/multi-client-10-14
-      - run: docker push guyleifer/multi-nginx-10-14
-      - run: docker push guyleifer/multi-server-10-14
-      - run: docker push guyleifer/multi-worker-10-14
+      - run: docker push guyleifer7/multi-client-10-14
+      - run: docker push guyleifer7/multi-nginx-10-14
+      - run: docker push guyleifer7/multi-server-10-14
+      - run: docker push guyleifer7/multi-worker-10-14
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
